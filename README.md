@@ -17,11 +17,11 @@
 
 - 나의 데이터 document와 LLM을 가지고 customer와 Question&Answering을 할 수 있게.
 
-![Untitled](LangChain%20Chat%20with%20Your%20Data%2059a010845cd2416a8d37f9a18880775f/Untitled.png)
+![Untitled](images/Untitled.png)
 
 ### 1. Document Loading
 
-![Untitled](LangChain%20Chat%20with%20Your%20Data%2059a010845cd2416a8d37f9a18880775f/Untitled%201.png)
+![Untitled](images/Untitled%201.png)
 
 - unstructured / structured dataset을 모두 loading 할 수 있도록 한다.
 - 다양한 나의 소스 데이터를 올린 다음에 적절하게 split해서 db에 저장하는 방식. 자동으로 처리해주기 때문에 굉장히 유용할 것으로 보인다.
@@ -29,21 +29,21 @@
 
 ### 2. Document Splitting
 
-![Untitled](LangChain%20Chat%20with%20Your%20Data%2059a010845cd2416a8d37f9a18880775f/Untitled%202.png)
+![Untitled](images/Untitled%202.png)
 
-![Untitled](LangChain%20Chat%20with%20Your%20Data%2059a010845cd2416a8d37f9a18880775f/Untitled%203.png)
+![Untitled](images/Untitled%203.png)
 
-![Untitled](LangChain%20Chat%20with%20Your%20Data%2059a010845cd2416a8d37f9a18880775f/Untitled%204.png)
+![Untitled](images/Untitled%204.png)
 
-![Untitled](LangChain%20Chat%20with%20Your%20Data%2059a010845cd2416a8d37f9a18880775f/Untitled%205.png)
+![Untitled](images/Untitled%205.png)
 
 ### 3. Vectorstores and Embeddings
 
-![Untitled](LangChain%20Chat%20with%20Your%20Data%2059a010845cd2416a8d37f9a18880775f/Untitled%206.png)
+![Untitled](images/Untitled%206.png)
 
-![Untitled](LangChain%20Chat%20with%20Your%20Data%2059a010845cd2416a8d37f9a18880775f/Untitled%207.png)
+![Untitled](images/Untitled%207.png)
 
-![Untitled](LangChain%20Chat%20with%20Your%20Data%2059a010845cd2416a8d37f9a18880775f/Untitled%208.png)
+![Untitled](images/Untitled%208.png)
 
 - 우리는 정관을 rule-base로 split했고, langchain은 자동으로 split했다는 점에서 차이가 있다.
 - 그 다음에는 똑같이 openAIEmbedding으로 임베딩을 만들어서 벡터를 저장하고, index에서 서치하는 방식은 똑같이 사용하고 있다.
@@ -54,33 +54,33 @@
 
 ### 4. retrieval
 
-![Untitled](LangChain%20Chat%20with%20Your%20Data%2059a010845cd2416a8d37f9a18880775f/Untitled%209.png)
+![Untitled](images/Untitled%209.png)
 
 - 앞의 렉쳐에서 다뤘던 edge cases에 대한 문제를 해결하기 위한 retrieval 기법을 소개한다.
 
-![Untitled](LangChain%20Chat%20with%20Your%20Data%2059a010845cd2416a8d37f9a18880775f/Untitled%2010.png)
+![Untitled](images/Untitled%2010.png)
 
-![Untitled](LangChain%20Chat%20with%20Your%20Data%2059a010845cd2416a8d37f9a18880775f/Untitled%2011.png)
+![Untitled](images/Untitled%2011.png)
 
 - query와 가장 관련있는 거 뿐만 아니라 diverse도 보장할 수 있게끔 가져온다.
 
-![Untitled](LangChain%20Chat%20with%20Your%20Data%2059a010845cd2416a8d37f9a18880775f/Untitled%2012.png)
+![Untitled](images/Untitled%2012.png)
 
 - LLM을 이용해서 original question을 re-writing 하는 것 (query generation과 동일)
 - 특히, 메타 데이터의 정보도 필요한 경우에 유용. 즉 filter로 contentent들을 한 번 걸러주고, 그 다음에 search term을 찾게끔 만드는 것
 
-![Untitled](LangChain%20Chat%20with%20Your%20Data%2059a010845cd2416a8d37f9a18880775f/Untitled%2013.png)
+![Untitled](images/Untitled%2013.png)
 
 ### 5. Question Answering
 
-![Untitled](LangChain%20Chat%20with%20Your%20Data%2059a010845cd2416a8d37f9a18880775f/Untitled%2014.png)
+![Untitled](images/Untitled%2014.png)
 
-![Untitled](LangChain%20Chat%20with%20Your%20Data%2059a010845cd2416a8d37f9a18880775f/Untitled%2015.png)
+![Untitled](images/Untitled%2015.png)
 
 - relevant document 가 너무 많은 경우에는 다 넣을 수가 없기 때문에 위와 같은 3가지 방법을 활용한다.
 - langchain plus platform을 이용하면 이런 기능들을 사용할 수 있고, 어떻게 돌아갔는지 child runs도 확인할 수 있다.
     
-    ![Untitled](LangChain%20Chat%20with%20Your%20Data%2059a010845cd2416a8d37f9a18880775f/Untitled%2016.png)
+    ![Untitled](images/Untitled%2016.png)
     
 - 이거이거 langchain 들어갔는데 waitlist 넣어놔야 하네,,, 아직 closed beta이다.
 
@@ -89,7 +89,7 @@
 - 지금까지 구현했던 `RetrievalQA` 를 사용한 qa_chain 에다가, dialogue history를 기억할 수 있는 `ConversationBufferMemory` 를 활용한 memory를 이용해서, `ConversationalRetrievalChain` 을 구현하기.
 - memory 덕분에 Chain input에 chat_history가 자동으로 들어간다.
 
-![Untitled](LangChain%20Chat%20with%20Your%20Data%2059a010845cd2416a8d37f9a18880775f/Untitled%2017.png)
+![Untitled](images/Untitled%2017.png)
 
 **(++) 한국어에서 이게 잘 적용이 되려나? 안 될 수 있을 거 같음. 확인하는 것이 필요함.** 
 
